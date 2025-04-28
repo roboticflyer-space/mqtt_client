@@ -1,0 +1,53 @@
+broker:
+  host: 124.160.76.18
+  port: 1883
+bridge:
+  ros2mqtt:
+    - ros_topic: /mavros/state/json
+      mqtt_topic: /155710/state
+      primitive: true
+    - ros_topic: /mavros/battery/json
+      mqtt_topic: /155710/battery
+      primitive: true
+    - ros_topic: /mavros/altitude/json
+      mqtt_topic: /155710/altitude
+      primitive: true
+    - ros_topic: /mavros/gps/json
+      mqtt_topic: /155710/gps
+      primitive: true
+    - ros_topic: /mavros/pose/json
+      mqtt_topic: /155710/pose
+      primitive: true
+    - ros_topic: /mavros/velocity/json
+      mqtt_topic: /155710/velocity
+      primitive: true
+    - ros_topic: /sling_state/json
+      mqtt_topic: /155710/sling_state
+      primitive: true
+    - ros_topic: /mavros/waypoints/json
+      mqtt_topic: /155710/waypoints
+      primitive: true
+    # 添加键盘控制状态反馈
+    - ros_topic: /mqtt/uav_status
+      mqtt_topic: /155710/keyboard_status
+      primitive: true
+    - ros_topic: /mqtt/velocity_feedback
+      mqtt_topic: /155710/keyboard_velocity
+      primitive: true
+  mqtt2ros:
+    - mqtt_topic: /155710/arm
+      ros_topic: /mavros/arm/json
+      primitive: true
+    - mqtt_topic: /155710/set_mode
+      ros_topic: /mavros/set_mode/json
+      primitive: true
+    - mqtt_topic: /155710/upload_waypoint
+      ros_topic: /mavros/waypoint/json
+      primitive: true
+    - mqtt_topic: /155710/sling
+      ros_topic: /sling_control/json
+      primitive: true
+    # 添加键盘控制输入
+    - mqtt_topic: /155710/keyboard_control
+      ros_topic: /mqtt/keyboard_control
+      primitive: true
